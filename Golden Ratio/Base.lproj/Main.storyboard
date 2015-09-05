@@ -1,25 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Golden_Ratio" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="gratio" translatesAutoresizingMaskIntoConstraints="NO" id="sB8-n0-iFc">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-O3-cCp">
+                                <rect key="frame" x="0.0" y="28" width="320" height="520"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="swapRatio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5C1-dz-qgl"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="QgI-O3-cCp" secondAttribute="bottom" constant="20" symbolic="YES" id="9nI-4Y-Pgd"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sB8-n0-iFc" secondAttribute="bottom" id="E0z-sL-xpi"/>
+                            <constraint firstItem="QgI-O3-cCp" firstAttribute="trailing" secondItem="sB8-n0-iFc" secondAttribute="trailing" id="KW6-SA-Byo"/>
+                            <constraint firstItem="sB8-n0-iFc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="LUJ-Nq-95w"/>
+                            <constraint firstAttribute="trailing" secondItem="sB8-n0-iFc" secondAttribute="trailing" id="XcI-GX-qPi"/>
+                            <constraint firstItem="QgI-O3-cCp" firstAttribute="leading" secondItem="sB8-n0-iFc" secondAttribute="leading" id="c0h-li-2uL"/>
+                            <constraint firstItem="sB8-n0-iFc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="n92-W9-DXe"/>
+                            <constraint firstItem="QgI-O3-cCp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="veO-r9-72o"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="sB8-n0-iFc" id="hbi-DQ-AnO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="162" y="345"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gratio" width="375" height="667"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

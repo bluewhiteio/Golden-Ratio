@@ -9,11 +9,37 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet var imageView: UIImageView!
+    
+    var toggleState = 1
+    @IBAction func swapRatio(sender: AnyObject) {
+        
+        if toggleState == 1 {
+            toggleState = 2
+            imageView.image = UIImage(named:"gratioland")
+        } else {
+            toggleState = 1
+            imageView.image = UIImage(named:"gratio")
+        }
+    
+        
+        
+        
+    }
+    
+    var v : JMBackgroundCameraView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        v = JMBackgroundCameraView(frame: view.bounds, position: DevicePosition.Back)
+        view.addSubview(v)
+        view.sendSubviewToBack(v)
+        
     }
+    
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

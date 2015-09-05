@@ -13,6 +13,10 @@
 		701E43F11B92D66D00B7A5AA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701E43F01B92D66D00B7A5AA /* Images.xcassets */; };
 		701E43F41B92D66D00B7A5AA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 701E43F21B92D66D00B7A5AA /* LaunchScreen.xib */; };
 		701E44001B92D66D00B7A5AA /* Golden_RatioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701E43FF1B92D66D00B7A5AA /* Golden_RatioTests.swift */; };
+		7034FD7D1B92E63300757C29 /* JMBackgroundCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7034FD7C1B92E63300757C29 /* JMBackgroundCameraView.swift */; };
+		7034FD7F1B92E6DA00757C29 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7034FD7E1B92E6DA00757C29 /* UIKit.framework */; };
+		7034FD811B92E70500757C29 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7034FD801B92E70500757C29 /* AVFoundation.framework */; };
+		7034FD831B92E70D00757C29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7034FD821B92E70D00757C29 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		701E43F91B92D66D00B7A5AA /* Golden RatioTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Golden RatioTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		701E43FE1B92D66D00B7A5AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		701E43FF1B92D66D00B7A5AA /* Golden_RatioTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Golden_RatioTests.swift; sourceTree = "<group>"; };
+		7034FD7C1B92E63300757C29 /* JMBackgroundCameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JMBackgroundCameraView.swift; sourceTree = "<group>"; };
+		7034FD7E1B92E6DA00757C29 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		7034FD801B92E70500757C29 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7034FD821B92E70D00757C29 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +51,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7034FD831B92E70D00757C29 /* Foundation.framework in Frameworks */,
+				7034FD811B92E70500757C29 /* AVFoundation.framework in Frameworks */,
+				7034FD7F1B92E6DA00757C29 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +70,9 @@
 		701E43DB1B92D66D00B7A5AA = {
 			isa = PBXGroup;
 			children = (
+				7034FD821B92E70D00757C29 /* Foundation.framework */,
+				7034FD801B92E70500757C29 /* AVFoundation.framework */,
+				7034FD7E1B92E6DA00757C29 /* UIKit.framework */,
 				701E43E61B92D66D00B7A5AA /* Golden Ratio */,
 				701E43FC1B92D66D00B7A5AA /* Golden RatioTests */,
 				701E43E51B92D66D00B7A5AA /* Products */,
@@ -79,6 +93,7 @@
 			children = (
 				701E43E91B92D66D00B7A5AA /* AppDelegate.swift */,
 				701E43EB1B92D66D00B7A5AA /* ViewController.swift */,
+				7034FD7C1B92E63300757C29 /* JMBackgroundCameraView.swift */,
 				701E43ED1B92D66D00B7A5AA /* Main.storyboard */,
 				701E43F01B92D66D00B7A5AA /* Images.xcassets */,
 				701E43F21B92D66D00B7A5AA /* LaunchScreen.xib */,
@@ -214,6 +229,7 @@
 			files = (
 				701E43EC1B92D66D00B7A5AA /* ViewController.swift in Sources */,
 				701E43EA1B92D66D00B7A5AA /* AppDelegate.swift in Sources */,
+				7034FD7D1B92E63300757C29 /* JMBackgroundCameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +425,7 @@
 				701E44051B92D66D00B7A5AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		701E44061B92D66D00B7A5AA /* Build configuration list for PBXNativeTarget "Golden RatioTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +434,7 @@
 				701E44081B92D66D00B7A5AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
