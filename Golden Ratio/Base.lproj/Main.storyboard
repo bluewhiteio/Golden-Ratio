@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,43 +16,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="gratio" translatesAutoresizingMaskIntoConstraints="NO" id="sB8-n0-iFc">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-b5-GCc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QgI-O3-cCp">
-                                <rect key="frame" x="0.0" y="28" width="320" height="520"/>
-                                <state key="normal">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="swapRatio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5C1-dz-qgl"/>
+                                    <segue destination="Hid-Yn-H7x" kind="embed" id="gdB-PP-Sgr"/>
                                 </connections>
-                            </button>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="QgI-O3-cCp" secondAttribute="bottom" constant="20" symbolic="YES" id="9nI-4Y-Pgd"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sB8-n0-iFc" secondAttribute="bottom" id="E0z-sL-xpi"/>
-                            <constraint firstItem="QgI-O3-cCp" firstAttribute="trailing" secondItem="sB8-n0-iFc" secondAttribute="trailing" id="KW6-SA-Byo"/>
-                            <constraint firstItem="sB8-n0-iFc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="LUJ-Nq-95w"/>
-                            <constraint firstAttribute="trailing" secondItem="sB8-n0-iFc" secondAttribute="trailing" id="XcI-GX-qPi"/>
-                            <constraint firstItem="QgI-O3-cCp" firstAttribute="leading" secondItem="sB8-n0-iFc" secondAttribute="leading" id="c0h-li-2uL"/>
-                            <constraint firstItem="sB8-n0-iFc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="n92-W9-DXe"/>
-                            <constraint firstItem="QgI-O3-cCp" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" symbolic="YES" id="veO-r9-72o"/>
+                            <constraint firstAttribute="trailing" secondItem="pHU-b5-GCc" secondAttribute="trailing" id="PTM-Sr-2au"/>
+                            <constraint firstItem="pHU-b5-GCc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="WsZ-1Y-9g6"/>
+                            <constraint firstItem="pHU-b5-GCc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="fYZ-Fe-Jlu"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="pHU-b5-GCc" secondAttribute="bottom" id="vmY-5V-DLc"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="imageView" destination="sB8-n0-iFc" id="hbi-DQ-AnO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="162" y="345"/>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="cWr-Gu-X3K">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="Hid-Yn-H7x" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RSr-Gg-lor" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="345"/>
+        </scene>
+        <!--Overlay View Controller-->
+        <scene sceneID="W6c-d1-9vQ">
+            <objects>
+                <viewController storyboardIdentifier="OverlayViewController" id="ZbK-6F-Pv2" customClass="OverlayViewController" customModule="Golden_Ratio" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IBd-ll-cuA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hrm-L0-TOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H2d-pK-vSd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K8L-tG-eqK">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="K8L-tG-eqK" firstAttribute="top" secondItem="H2d-pK-vSd" secondAttribute="top" id="3AG-an-Mqg"/>
+                            <constraint firstItem="Hrm-L0-TOk" firstAttribute="top" secondItem="K8L-tG-eqK" secondAttribute="bottom" id="IxD-5X-ezI"/>
+                            <constraint firstAttribute="trailing" secondItem="K8L-tG-eqK" secondAttribute="trailing" id="Yy1-xl-cpf"/>
+                            <constraint firstItem="K8L-tG-eqK" firstAttribute="leading" secondItem="H2d-pK-vSd" secondAttribute="leading" id="bvd-Pf-Nhi"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="K8L-tG-eqK" id="HS1-1x-Jki"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NvU-K1-cbV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="345"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="gratio" width="375" height="667"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

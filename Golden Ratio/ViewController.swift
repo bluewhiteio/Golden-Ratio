@@ -8,44 +8,51 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet var imageView: UIImageView!
+class ViewController: UIViewController, UIPageViewControllerDataSource {
     
-    var toggleState = 1
-    @IBAction func swapRatio(sender: AnyObject) {
-        
-        if toggleState == 1 {
-            toggleState = 2
-            imageView.image = UIImage(named:"gratioland")
-        } else {
-            toggleState = 1
-            imageView.image = UIImage(named:"gratio")
-        }
-    
-        
-        
-        
-    }
-    
-    var v : JMBackgroundCameraView!
+    var pageViewController: UIPageViewController!
+    var overlayViewControllers: Array<UIViewController>!
+    var cameraView: JMBackgroundCameraView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        v = JMBackgroundCameraView(frame: view.bounds, position: DevicePosition.Back)
-        view.addSubview(v)
-        view.sendSubviewToBack(v)
+        setupPageViewController()
         
+        cameraView = JMBackgroundCameraView(frame: view.bounds, position: DevicePosition.Back)
+        view.addSubview(cameraView)
+        view.sendSubviewToBack(cameraView)
     }
     
-    
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func setupPageViewController() {
+        let firstOverlayViewController = storyboard?.instantiateViewControllerWithIdentifier("OverlayViewController") as! OverlayViewController
+        firstOverlayViewController.image = UIImage(named: "gratio")
+        
+        let secondOverlayViewController = storyboard?.instantiateViewControllerWithIdentifier("OverlayViewController") as! OverlayViewController
+        secondOverlayViewController.image = UIImage(named: "gratioland")
+        
+        overlayViewControllers = [firstOverlayViewController, secondOverlayViewController]
+        
+        pageViewController.setViewControllers([overlayViewControllers[0]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+        
+        pageViewController.dataSource = self
     }
-
-
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+        if let index = find(overlayViewControllers, viewController) where index < overlayViewControllers.count - 1 {
+            return overlayViewControllers[(index + 1)]
+        }
+        return nil
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+        if let index = find(overlayViewControllers, viewController) where index > 0 {
+            return overlayViewControllers[(index - 1)]
+        }
+        return nil
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        pageViewController = segue.destinationViewController as! UIPageViewController
+    }
 }
-
