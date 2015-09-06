@@ -55,4 +55,8 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         pageViewController = segue.destinationViewController as! UIPageViewController
     }
+    
+    @IBAction func saveScreenShot(sender: UITapGestureRecognizer) {
+        //TODO: Save screen shot
+    }
 }

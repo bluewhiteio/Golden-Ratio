@@ -37,9 +37,7 @@ class JMBackgroundCameraView: UIView {
     }
    
     func initCameraInPosition(position: DevicePosition) {
-        
-       
-       session = AVCaptureSession()
+        session = AVCaptureSession()
         session.sessionPreset = AVCaptureSessionPresetHigh
         
         var devices = NSArray()
@@ -64,8 +62,6 @@ class JMBackgroundCameraView: UIView {
         if session.canAddInput(input) {
             session.addInput(input)
         }
-        
-        
         
         imageOutput = AVCaptureStillImageOutput()
         imageOutput.outputSettings = outputSettings as [NSObject : AnyObject]

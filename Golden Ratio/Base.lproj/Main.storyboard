@@ -25,15 +25,24 @@
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="pHU-b5-GCc" secondAttribute="trailing" id="PTM-Sr-2au"/>
                             <constraint firstItem="pHU-b5-GCc" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="WsZ-1Y-9g6"/>
                             <constraint firstItem="pHU-b5-GCc" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="fYZ-Fe-Jlu"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="pHU-b5-GCc" secondAttribute="bottom" id="vmY-5V-DLc"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yxf-bm-Rqm" appends="YES" id="Apr-oU-lPP"/>
+                        </connections>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yxf-bm-Rqm">
+                    <connections>
+                        <action selector="saveScreenShot:" destination="vXZ-lx-hvc" id="eKf-85-itw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="162" y="345"/>
         </scene>
