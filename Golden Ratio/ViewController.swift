@@ -57,6 +57,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     @IBAction func saveScreenShot(sender: UITapGestureRecognizer) {
-        //TODO: Save screen shot
+        cameraView.preview.connection.enabled = !cameraView.preview.connection.enabled
     }
 }
