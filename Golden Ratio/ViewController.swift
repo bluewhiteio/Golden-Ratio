@@ -13,6 +13,9 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     var pageViewController: UIPageViewController!
     var overlayViewControllers: Array<UIViewController>!
     var cameraView: JMBackgroundCameraView!
+    var leftSwipeGestureRecognizer: UISwipeGestureRecognizer!
+    var rightSwipeGestureRecognizer: UISwipeGestureRecognizer!
+    var pageIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,32 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         pageViewController.setViewControllers([overlayViewControllers[0]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         
         pageViewController.dataSource = self
+        
+        for view in pageViewController.view.subviews {
+            if let scrollView = view as? UIScrollView {
+                scrollView.scrollEnabled = false
+            }
+        }
+        leftSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "goToNextPage:")
+        leftSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
+        rightSwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "goToPreviousPage:")
+        rightSwipeGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        pageViewController.view.addGestureRecognizer(leftSwipeGestureRecognizer)
+        pageViewController.view.addGestureRecognizer(rightSwipeGestureRecognizer)
+    }
+    
+    func goToPreviousPage(sender: UISwipeGestureRecognizer) {
+        if pageIndex > 0 {
+            pageIndex--
+            pageViewController.setViewControllers([overlayViewControllers[pageIndex]], direction: UIPageViewControllerNavigationDirection.Reverse, animated: true, completion: nil)
+        }
+    }
+    
+    func goToNextPage(sender: UISwipeGestureRecognizer) {
+        if pageIndex < overlayViewControllers.count - 1 {
+            pageIndex++
+            pageViewController.setViewControllers([overlayViewControllers[pageIndex]], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
+        }
     }
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
